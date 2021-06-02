@@ -1,24 +1,39 @@
 import logo from './logo.svg';
+import React from 'react';
+
+import {
+  Route,
+  Router,
+  BrowserRouter
+} from "react-router-dom";
+
+import { createBrowserHistory } from 'history';
+
 import './App.css';
 
+//Pages
+import Home from './Pages/Home'
+import Casters from './Pages/Casters'
+import Matchup from './Pages/Matchup'
+import LeagueOverlay from './Pages/LeagueSpectatorOverlay'
+import DynamicOverlay from './Pages/DynamicOverlay'
+
 function App() {
+
+  const history = createBrowserHistory();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <React.Fragment>
+        <main role='main' className="content flex-shrink-0">
+          <Route exact path="/" component={Home} />
+          <Route path="/Casters" component={Casters} />
+          <Route path="/Matchup" component={Matchup} />
+          <Route path="/LeagueOverlay" component={LeagueOverlay} />
+          <Route path="/DynamicOverlay" component={DynamicOverlay} />
+        </main>
+      </React.Fragment>
+    </Router>
   );
 }
 
