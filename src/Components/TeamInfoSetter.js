@@ -134,8 +134,19 @@ export default function (props) {
 
                     <Form.Control inline as="select"
                         onChange={event => {
-                            console.log(event)
-                            //dispatch(props.dispatch_image(`${event.target.value}`))
+                            axios.get(`Teams/${event.target.value}`, {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                }
+                            })
+                            .then(response => {
+                                dispatch(props.dispatch_name(response.data.name))
+                                dispatch(props.dispatch_shortName(response.data.shortName))
+                                dispatch(props.dispatch_image(response.data.image))
+                                dispatch(props.dispatch_score(response.data.score))
+                                dispatch(props.dispatch_series(response.data.series))
+                            })
                         }}
                         className="col-xs-4 m-auto">
                         {props.teams}

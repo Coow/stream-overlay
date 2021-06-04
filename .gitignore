@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /public/TeamImages/*
-src/Pages/GameState.json
+/public/Teams/*
 src/Pages/GameState.json
