@@ -4,6 +4,39 @@ This tool/application is ment to help with Stream Production when **Spectating**
 
 ## Overview
 
+- [Installation](#installation)
+    + [Install Node.JS](#install-nodejs)
+    + [Download Stream Overlay](#download-stream-overlay)
+    + [RUN `install.bat`](#run--installbat-)
+    + [RUN `start.bat`](#run--startbat-)
+- [Usage](#usage)
+    + [OBS](#obs)
+    + [League of Legends INGAME](#league-of-legends-ingame)
+- [App UI](#--app-ui--)
+  + [Pages](#--pages--)
+    - [League Overlay](#league-overlay)
+    - [Matchup](#matchup)
+    - [Casters](#casters)
+    - [End Of Stream](#end-of-stream)
+  + [Global Settings](#--global-settings--)
+    - [Show Score or Series](#show-score-or-series)
+    - [Series Settings](#series-settings)
+    - [Tournament Name](#tournament-name)
+    - [Overlay Settings](#overlay-settings)
+    - [Huge Save Button](#huge-save-button)
+    - [Swap Teams](#swap-teams)
+  + [Team Settings](#--team-settings--)
+    - [Team Name](#team-name)
+    - [Team Abbriviation](#team-abbriviation)
+    - [Team Icon](#team-icon)
+    - [Team Score](#team-score)
+    - [Series Wins](#series-wins)
+    - [Save or Load Team](#save-or-load-team)
+- [Technical Stuff](#technical-stuff)
+    + [API](#api)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## About
 I started working on this as a personal project after I couldn't find a single Overlay for when I am Casting/Producing LoL. There was plenty of applications for Champ Select, but nothing for when actually spectating. So, after a while this was what I came up with. It also has some extra features for showing Casters and the Matchup for a "waiting" room/scene. Aswell as a End of Stream scene for showing Socials and Sponsors.
@@ -21,7 +54,7 @@ Lastly, if you need a Caster, feel free to contact me on [Twitter](https://twitt
 
 - ~~Best Of Series~~
 - Add option to save a current state/config for easy loading
-- Save single team to load
+- ~~Save single team to load~~
 - Make scale feature, to fit other InGame Hud Sizes, and screen resoultions
 - ~~Swap Teams around~~
 - Save casters
