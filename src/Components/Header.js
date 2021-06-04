@@ -15,10 +15,8 @@ export default function () {
                 <Nav.Link><NavLink className="text-white hover:no-underline" to="Matchup">Matchup</NavLink></Nav.Link>
 
                 <Nav.Link><NavLink className="text-white hover:no-underline" to="LeagueOverlay">Spectator Overlay</NavLink></Nav.Link>
-
-                <Nav.Link><NavLink className="text-white hover:no-underline" to="DynamicOverlay">Dynamic Overlay</NavLink></Nav.Link>
                 
-                <Nav.Link><NavLink className="text-white hover:no-underline" to="">Sponsors</NavLink></Nav.Link>
+                <Nav.Link><NavLink className="text-white hover:no-underline" to="">End of Stream</NavLink></Nav.Link>
             </Nav>
         </Navbar>
     )

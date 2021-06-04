@@ -173,6 +173,7 @@ export default function Home() {
 												}}>
 											</Form.Control>
 										</Row>
+										{/*}
 										<Row center="xs" className="m-auto items-center pt-2">
 											<Form.Label className="text-white">Game Resolution</Form.Label>
 											<Form.Control
@@ -185,12 +186,13 @@ export default function Home() {
 												<option value="2560x1440">2560 x 1440</option>
 											</Form.Control>
 										</Row>
+										{*/}
 									</Col>
 								</Row>
 							</Grid>
 							<Button className="mb-2" variant="outline-success" type="submit" onClick={handleSubmit}>
 								<h5 className="pt-2 px-2">Save</h5>
-                            </Button>
+							</Button>
 						</Form>
 					</Col>
 				</Row>

@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 	return res.send('Hello Server!')
 })
 
-app.post('/upload', function (req, res) {
+app.post('/uploadImage', function (req, res) {
 
 	upload(req, res, function (err) {
 

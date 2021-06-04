@@ -56,7 +56,7 @@ export default function (props) {
                                 const file = event.target.files[0];
                                 dispatch(props.dispatch_image(`TeamImages/${file.name}`))
 
-                                fetch('http://localhost:30061/upload', {
+                                fetch('http://localhost:30061/uploadImage', {
                                     method: 'post',
                                     body: data
                                 })

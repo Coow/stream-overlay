@@ -22,7 +22,7 @@ export default function () {
                 position: "absolute",
                 textAlign: "center",
                 //border: "1px solid red",
-                top: "30px",
+                top: "45px",
                 left: "420px"
             }}>
                 <img src={GameState.blueImage}
@@ -86,7 +86,7 @@ export default function () {
                 position: "absolute",
                 textAlign: "center",
                 //border: "1px solid red",
-                top: "30px",
+                top: "45px",
                 right: "320px"
             }}>
                 <img src={GameState.redImage}
