@@ -7,8 +7,8 @@ This tool/application is ment to help with Stream Production when **Spectating**
 - [Installation](#installation)
     + [Install Node.JS](#install-nodejs)
     + [Download Stream Overlay](#download-stream-overlay)
-    + [RUN `install.bat`](#run--installbat-)
-    + [RUN `start.bat`](#run--startbat-)
+    + [RUN `npm install`](#run--npm-install-)
+    + [RUN `npm start`](#run--npm-start-)
 - [Usage](#usage)
     + [OBS](#obs)
     + [League of Legends INGAME](#league-of-legends-ingame)
@@ -73,19 +73,22 @@ Download from the [official website](https://nodejs.org/) and follow the install
 
 Download or clone the project and unzip
 
-### RUN `install.bat`
+### RUN `npm install`
+
+Open a Powershell or CMD and navigate to the folder that you extracted Stream Overlay to
+
+Quick tip: Hold Shift and Right Click in the folder, and click `Open PowerShell/CMD Window Here`
 
 After the commands has completed, all the dependencies should be installed
 
-### RUN `start.bat`
+### RUN `npm start`
 
 This will launch the React App and the API, and open a browser window with the address `http://localhost:30060`
 
 # Usage
 
-Start the app using the `start.bat` file (If not already running!) 
+Start the app using the `start.bat` file or open a PowerShell/CMD Window and run `npm start` (If not already running!) 
 
-If the overlay doesn't load, right click the Browser Source, click Properties and click `Refresh cache of current page`
 
 ### OBS
 
@@ -102,6 +105,8 @@ URL | Description
 `http://localhost:30060/Matchup` | Team VS Team 
 `http://localhost:30060/Casters` | Displays the caster(s)  
 ~~`http://localhost:30060/EndOfStream`~~ | (NOT YET IMPLEMENT) End of stream screen  
+
+If the overlay doesn't load, right click the Browser Source, click Properties and click `Refresh cache of current page`
 
 ![](https://i.imgur.com/88KJsjv.png)
 
