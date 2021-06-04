@@ -54,7 +54,7 @@ export default function Home() {
 			.then(response => response.json())
 			.then(data => {
 				//Add empty image if ya know, empty
-				options.push(<option value={``}>None</option>)
+				options.push(<option value={``}></option>)
 				data.forEach(element => {
 					options.push(<option value={`TeamImages/${element}`}>{element}</option>)
 				});
@@ -70,7 +70,7 @@ export default function Home() {
 			.then(response => response.json())
 			.then(data => {
 				//Add empty image if ya know, empty
-				options.push(<option value={``}>None</option>)
+				options.push(<option value={``}></option>)
 				data.forEach(element => {
 					options.push(<option value={`${element}`}>{element}</option>)
 				});

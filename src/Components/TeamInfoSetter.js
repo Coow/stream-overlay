@@ -12,11 +12,6 @@ export default function (props) {
 
     const dispatch = useDispatch();
 
-    function saveFile() {
-        let blob = new Blob(["Hello, world!"], { type: "text/plain" });
-        FileSaver.saveAs(blob, `${props.name}.json`);
-    }
-
     return (
         <Col className={`w-1/3 m-8 ${props.borderColor} border-2 rounded-xl`}>
             <Form className="text-white text-center p-8" onSubmit={props.handleSubmit}>
@@ -140,13 +135,16 @@ export default function (props) {
                                     'Accept': 'application/json'
                                 }
                             })
-                            .then(response => {
-                                dispatch(props.dispatch_name(response.data.name))
-                                dispatch(props.dispatch_shortName(response.data.shortName))
-                                dispatch(props.dispatch_image(response.data.image))
-                                dispatch(props.dispatch_score(response.data.score))
-                                dispatch(props.dispatch_series(response.data.series))
-                            })
+                                .then(response => {
+                                    console.log(response)
+                                    //If the input value was `` it will return an array instead, so check if the length is something and return
+                                    if(response.data.length >= 0) return;
+                                    dispatch(props.dispatch_name(response.data.name))
+                                    dispatch(props.dispatch_shortName(response.data.shortName))
+                                    dispatch(props.dispatch_image(response.data.image))
+                                    dispatch(props.dispatch_score(response.data.score))
+                                    dispatch(props.dispatch_series(response.data.series))
+                                })
                         }}
                         className="col-xs-4 m-auto">
                         {props.teams}
