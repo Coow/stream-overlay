@@ -101,7 +101,7 @@ export default function (props) {
                             variant="outline-primary"
                             onClick={() => dispatch(props.dispatch_series(props.series + 1))}>
                             +</Button>
-                    </Form.Row>0
+                    </Form.Row>
 
                 </Form.Group>
                 <div className="inline-flex items-center border-gray-600 border-2 rounded-xl p-2">

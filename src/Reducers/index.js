@@ -19,7 +19,8 @@ const allReducers = combineReducers({
     hudScale,
     gameResolution,
     bestOf,
-    showScore
+    showScore,
+    casters
 })
 
 export default allReducers;
@@ -73,6 +74,15 @@ function gameResolution(state = null, action) {
 function bestOf(state = 0, action) {
     switch (action.type) {
         case 'SET_BEST_OF':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function casters(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTERS':
             return state = action.payload;
         default:
             return state;

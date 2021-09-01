@@ -113,3 +113,10 @@ export const bestOf = (data) => {
         payload: data
     }
 }
+
+export const casters = (data) => {
+    return {
+        type: 'SET_CASTERS',
+        payload: data
+    }
+}

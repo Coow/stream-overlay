@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'nevis';
-  src: local('nevis'), url(nevis.ttf) format('truetype');
+  src: local('nevis'), url(Custom\ Nevis.otf) format('truetype');
 }
 
 body {

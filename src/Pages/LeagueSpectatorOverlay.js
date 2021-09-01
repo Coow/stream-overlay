@@ -154,18 +154,14 @@ export default function () {
                 left: "966px",
 
             }}>
-                <h1 style={{
-                    position: "relative",
-                    //border: "1px solid red",
-                    transform: "translate(-50%, 0)"
-                }}>
-                    {GameState.tournamentName}</h1>
+ 
             </a>
 
             <img style={{
                 position: "absolute",
                 zIndex: "-1"
             }} src={SpectatorOverlay} />
+            
 
             {GameState.showScore != "" ?
                 <img style={{

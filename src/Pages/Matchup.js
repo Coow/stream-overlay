@@ -9,11 +9,11 @@ export default function Matchup() {
         <div className="text-center text-white">
             <div className="team1 text-7xl">{(GameState.blueName).toUpperCase()}</div>
             <img className="team1Logo" src={GameState.blueImage}/>
-            <div className="team1Score text-9xl">0</div>
+            <div className="team1Score text-9xl">{GameState.blueSeries}</div>
 
             <div className="centered text-9xl" style={{}}>VS</div>
 
-            <div className="team2Score text-9xl">1</div>
+            <div className="team2Score text-9xl">{GameState.redSeries}</div>
             <img className="team2Logo" src={GameState.redImage}/>
             <div className=" team2 text-7xl text-center">{(GameState.redName).toUpperCase()}</div>
         </div>

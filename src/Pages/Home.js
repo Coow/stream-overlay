@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
 
 import Header from '../Components/Header'
-import { blueImage, blueName, blueShortName, blueScore, blueSeries, redImage, redName, redShortName, redScore, redSeries, tournamentName, gameState, showScore, hudScale, gameResolution, bestOf } from '../Actions'
+import { blueImage, blueName, blueShortName, blueScore, blueSeries, redImage, redName, redShortName, redScore, redSeries, tournamentName, gameState, showScore, hudScale, gameResolution, bestOf, casters } from '../Actions'
 
 import { Form, Button } from 'react-bootstrap';
 import RangeSlider from 'react-bootstrap-range-slider';
 import { Col, Grid, Row } from 'react-flexbox-grid';
 
 import TeamInfoSetter from '../Components/TeamInfoSetter'
+import CasterManager from '../Components/CasterManager'
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -33,6 +34,9 @@ export default function Home() {
 	const state_showScore = useSelector(state => state.showScore)
 	const state_hudScale = useSelector(state => state.hudScale)
 	const state_gameResolution = useSelector(state => state.gameResolution)
+
+	const state_caster = useSelector(state => state.casters)
+	
 	const state = useSelector(state => state)
 
 	const [_hudScale, set_hudScale] = useState(state_hudScale)
@@ -120,40 +124,35 @@ export default function Home() {
 							<Grid fluid className="pt-4">
 								<Row center="xs">
 									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
-										<Form.Label className="text-white">Show Score or Series & Overlay Elements</Form.Label>
-										<Form.Control
-											className="m-auto col-xs-4"
-											onChange={e => dispatch(showScore(e.target.value))}
-											value={state_showScore}
-											as="select">
-											<option value="">None</option>
-											<option value="score">Score</option>
-											<option value="series">Series Progress</option>
-										</Form.Control>
-									</Col>
-									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
-										<Form.Label className="text-white">Tournament Name</Form.Label>
-										<Form.Control
-											onChange={e => dispatch(tournamentName(e.target.value))}
-											value={state_tournamentName}></Form.Control>
-									</Col>
-								</Row>
-								<Row center="xs" className="my-4">
-									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2 items-center">
-										<Form.Label className="text-white">Series Settings</Form.Label>
-										<Form.Control
-											value={state_bestOf}
-											className="col-xs-4 m-auto"
-											as="select"
-											onChange={e => dispatch(bestOf(e.target.value))}>
-											<option value={"1"}>Best of 1</option>
-											<option value={"2"}>Best of 2</option>
-											<option value={"3"}>Best of 3</option>
-											<option value={"5"}>Best of 5</option>
-										</Form.Control>
-									</Col>
-									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
-										<Row center="xs" className="m-auto items-center">
+
+										<Row center="xs" className="pt-3 m-auto items-center">
+											<Form.Label className="text-white">Show Under Team</Form.Label>
+											<Form.Control
+												className="ml-4 col-xs-4"
+												onChange={e => dispatch(showScore(e.target.value))}
+												value={state_showScore}
+												as="select">
+												<option value="">None</option>
+												<option value="score">Score</option>
+												<option value="series">Series Progress</option>
+											</Form.Control>
+										</Row>
+
+										<Row center="xs" className="pt-3 m-auto items-center">
+											<Form.Label className="pt-2 text-white">Series Settings</Form.Label>
+											<Form.Control
+												value={state_bestOf}
+												className="col-xs-4 ml-4"
+												as="select"
+												onChange={e => dispatch(bestOf(e.target.value))}>
+												<option value={"1"}>Best of 1</option>
+												<option value={"2"}>Best of 2</option>
+												<option value={"3"}>Best of 3</option>
+												<option value={"5"}>Best of 5</option>
+											</Form.Control>
+										</Row>
+
+										<Row center="xs" className="pt-3 m-auto items-center">
 											<Form.Label className="text-white">Game HUD Scale</Form.Label>
 											<RangeSlider
 												tooltip="off"
@@ -173,20 +172,19 @@ export default function Home() {
 												}}>
 											</Form.Control>
 										</Row>
-										{/*}
-										<Row center="xs" className="m-auto items-center pt-2">
-											<Form.Label className="text-white">Game Resolution</Form.Label>
-											<Form.Control
-												as="select"
-												className="ml-4 col-xs-5"
-												value={state_gameResolution}
-												onChange={event => dispatch(gameResolution(event.target.value))}
-											>
-												<option value="1920x1080">1920 x 1080</option>
-												<option value="2560x1440">2560 x 1440</option>
-											</Form.Control>
-										</Row>
-										{*/}
+									</Col>
+
+									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
+										<Form.Label className="text-white">Casters</Form.Label>
+										<CasterManager/>
+									</Col>
+								</Row>
+								<Row center="xs" className="my-4">
+									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
+										<Form.Label className="text-white">Tournament Name</Form.Label>
+										<Form.Control
+											onChange={e => dispatch(tournamentName(e.target.value))}
+											value={state_tournamentName}></Form.Control>
 									</Col>
 								</Row>
 							</Grid>
