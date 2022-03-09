@@ -151,7 +151,7 @@ export default function Home() {
 												<option value={"5"}>Best of 5</option>
 											</Form.Control>
 										</Row>
-
+										{/*
 										<Row center="xs" className="pt-3 m-auto items-center">
 											<Form.Label className="text-white">Game HUD Scale</Form.Label>
 											<RangeSlider
@@ -171,11 +171,12 @@ export default function Home() {
 													dispatch(hudScale(changeEvent.target.value))
 												}}>
 											</Form.Control>
-										</Row>
+										</Row>*/}
 									</Col>
 
 									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
 										<Form.Label className="text-white">Casters</Form.Label>
+										<CasterManager/>
 										<CasterManager/>
 									</Col>
 								</Row>
