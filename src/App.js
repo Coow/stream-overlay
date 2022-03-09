@@ -17,6 +17,7 @@ import Casters from './Pages/Casters'
 import Matchup from './Pages/Matchup'
 import LeagueOverlay from './Pages/LeagueSpectatorOverlay'
 import DynamicOverlay from './Pages/DynamicOverlay'
+import Background from './Pages/Background';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/Matchup" component={Matchup} />
           <Route path="/LeagueOverlay" component={LeagueOverlay} />
           <Route path="/DynamicOverlay" component={DynamicOverlay} />
+          <Route path="/Background" component={Background} />
         </main>
       </React.Fragment>
     </Router>

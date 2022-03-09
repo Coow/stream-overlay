@@ -17,6 +17,8 @@ export default function () {
                 <Nav.Link><NavLink className="text-white hover:no-underline" to="LeagueOverlay">Spectator Overlay</NavLink></Nav.Link>
                 
                 <Nav.Link><NavLink className="text-white hover:no-underline" to="">End of Stream</NavLink></Nav.Link>
+
+                <Nav.Link><NavLink className="text-white hover:no-underline" to="Background">Background</NavLink></Nav.Link>
             </Nav>
         </Navbar>
     )

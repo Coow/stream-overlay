@@ -23,7 +23,7 @@ export default function () {
                 textAlign: "center",
                 //border: "1px solid red",
                 top: "45px",
-                left: "420px"
+                left: "256px"
             }}>
                 <img src={GameState.blueImage}
                     style={{
@@ -43,7 +43,7 @@ export default function () {
                 textAlign: "center",
                 //border: "1px solid red",
                 top: "4px",
-                left: "552px",
+                left: "383px",
 
             }}>
                 <h1 style={{
@@ -60,8 +60,8 @@ export default function () {
                 position: "absolute",
                 textAlign: "center",
                 //border: "1px solid red",
-                top: "55px",
-                left: "552px",
+                top: "62px",
+                left: "383px",
 
             }}>
                 <h3 style={{
@@ -87,7 +87,7 @@ export default function () {
                 textAlign: "center",
                 //border: "1px solid red",
                 top: "45px",
-                right: "320px"
+                right: "155px"
             }}>
                 <img src={GameState.redImage}
                     style={{
@@ -107,7 +107,7 @@ export default function () {
                 textAlign: "center",
                 //border: "1px solid red",
                 top: "4px",
-                right: "545px",
+                right: "373px",
 
             }}>
                 <h1 style={{
@@ -123,8 +123,8 @@ export default function () {
                 position: "absolute",
                 textAlign: "center",
                 //border: "1px solid red",
-                top: "55px",
-                right: "545px",
+                top: "62px",
+                right: "373px",
 
             }}>
                 <h3
@@ -147,14 +147,13 @@ export default function () {
 
             {/*Tournament Name*/}
             <a style={{
+                top: "50%",
+                right: "50%",
                 position: "absolute",
-                textAlign: "center",
-                //border: "1px solid red",
-                top: "822px",
-                left: "966px",
-
+                textAlign: "centered",
+                transform: "translate(50%, 590%)"
             }}>
- 
+                {/*GameState.tournamentName*/}
             </a>
 
             <img style={{
