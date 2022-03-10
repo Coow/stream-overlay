@@ -15,7 +15,7 @@ const fs = require('fs');
 
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, 'public/TeamImages')
+		cb(null, `public/${req.params.location}`)
 	},
 	filename: function (req, file, cb) {
 		cb(null, file.originalname)
@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 	return res.send('Hello Server!')
 })
 
-app.post('/uploadImage', function (req, res) {
+app.post('/uploadImage/:location', function (req, res) {
 
 	upload(req, res, function (err) {
 
@@ -79,10 +79,34 @@ app.get('/teams', function (req, res) {
 	})
 });
 
-app.get('/images', function (req, res) {
+app.get('/casters', function (req, res) {
+	let casters = []
+
+	fs.readdir('./public/Casters', (err, files) => {
+		files.forEach(file => {
+			casters.push(file);
+		})
+
+		return res.status(200).send(casters)
+	})
+});
+
+app.post('/saveCaster', jsonParser, function (req, res) {
+	console.log(req.body)
+	casterName = req.body.casterName.replace(/[\p{L}-]+/ug, "")
+	fs.writeFile(`public/Casters/${req.body.casterName}.json`, JSON.stringify(req.body.info), function (err, data) {
+		if (err) {
+			return res.status(500).json(err)
+		}
+		//console.log(data)
+		return res.status(200).send("OK")
+	})
+});
+
+app.get('/images/:folder', function (req, res) {
 	let images = []
 
-	fs.readdir('./public/TeamImages', (err, files) => {
+	fs.readdir(`./public/${req.params.folder}`, (err, files) => {
 		files.forEach(file => {
 			images.push(file);
 		})

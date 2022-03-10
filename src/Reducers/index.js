@@ -20,7 +20,16 @@ const allReducers = combineReducers({
     gameResolution,
     bestOf,
     showScore,
-    casters
+    casters,
+    caster1,
+    caster2,
+    caster3,
+    caster4,
+    caster1Image,
+    caster2Image,
+    caster3Image,
+    caster4Image,
+    casterAmount
 })
 
 export default allReducers;
@@ -83,6 +92,87 @@ function bestOf(state = 0, action) {
 function casters(state = [], action) {
     switch (action.type) {
         case 'SET_CASTERS':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster1(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER1':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster2(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER2':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster3(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER3':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster4(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER4':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster1Image(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER1_IMAGE':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster2Image(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER2_IMAGE':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster3Image(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER3_IMAGE':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster4Image(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER4_IMAGE':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function casterAmount(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER_AMOUNT':
             return state = action.payload;
         default:
             return state;

@@ -51,7 +51,7 @@ export default function (props) {
                                 const file = event.target.files[0];
                                 dispatch(props.dispatch_image(`TeamImages/${file.name}`))
 
-                                fetch('http://localhost:30061/uploadImage', {
+                                fetch('http://localhost:30061/uploadImage/TeamImages', {
                                     method: 'post',
                                     body: data
                                 })
@@ -138,7 +138,7 @@ export default function (props) {
                                 .then(response => {
                                     console.log(response)
                                     //If the input value was `` it will return an array instead, so check if the length is something and return
-                                    if(response.data.length >= 0) return;
+                                    if (response.data.length >= 0) return;
                                     dispatch(props.dispatch_name(response.data.name))
                                     dispatch(props.dispatch_shortName(response.data.shortName))
                                     dispatch(props.dispatch_image(response.data.image))

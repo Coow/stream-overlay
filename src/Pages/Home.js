@@ -4,7 +4,34 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
 
 import Header from '../Components/Header'
-import { blueImage, blueName, blueShortName, blueScore, blueSeries, redImage, redName, redShortName, redScore, redSeries, tournamentName, gameState, showScore, hudScale, gameResolution, bestOf, casters } from '../Actions'
+import {
+	blueImage,
+	blueName,
+	blueShortName,
+	blueScore,
+	blueSeries,
+	redImage,
+	redName,
+	redShortName,
+	redScore,
+	redSeries,
+	tournamentName,
+	gameState,
+	showScore,
+	hudScale,
+	gameResolution,
+	bestOf,
+	casters,
+	caster1,
+	caster1Image,
+	caster2,
+	caster2Image,
+	caster3,
+	caster3Image,
+	caster4,
+	caster4Image,
+	casterAmount
+} from '../Actions'
 
 import { Form, Button } from 'react-bootstrap';
 import RangeSlider from 'react-bootstrap-range-slider';
@@ -35,8 +62,18 @@ export default function Home() {
 	const state_hudScale = useSelector(state => state.hudScale)
 	const state_gameResolution = useSelector(state => state.gameResolution)
 
-	const state_caster = useSelector(state => state.casters)
-	
+
+	const state_casters = useSelector(state => state.casters)
+	const state_caster1 = useSelector(state => state.caster1)
+	const state_caster2 = useSelector(state => state.caster2)
+	const state_caster3 = useSelector(state => state.caster3)
+	const state_caster4 = useSelector(state => state.caster4)
+	const state_caster1Image = useSelector(state => state.caster1Image)
+	const state_caster2Image = useSelector(state => state.caster2Image)
+	const state_caster3Image = useSelector(state => state.caster3Image)
+	const state_caster4Image = useSelector(state => state.caster4Image)
+	const state_casterAmount = useSelector(state => state.casterAmount)
+
 	const state = useSelector(state => state)
 
 	const [_hudScale, set_hudScale] = useState(state_hudScale)
@@ -44,17 +81,20 @@ export default function Home() {
 	const [imageOptions, set_imageOptions] = useState([])
 	const [teamOptions, set_teamOptions] = useState([])
 
+	const [casterImageOptions, set_casterImageOptions] = useState([])
+	const [casterOptions, set_casterOptions] = useState([])
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
 		axios.post('http://localhost:30061/saveConfig', state)
 	}
 
-	//Gets avaliable images
+	//Gets avaliable Team images
 	useEffect(() => {
 		let options = [];
 
-		fetch('http://localhost:30061/images')
+		fetch('http://localhost:30061/images/TeamImages')
 			.then(response => response.json())
 			.then(data => {
 				//Add empty image if ya know, empty
@@ -65,6 +105,22 @@ export default function Home() {
 				set_imageOptions(options)
 			})
 	}, [state_blueImage, state_redImage])
+
+	//Gets avaliable Casters images
+	useEffect(() => {
+		let options = [];
+
+		fetch('http://localhost:30061/images/CasterImages')
+			.then(response => response.json())
+			.then(data => {
+				//Add empty image if ya know, empty
+				options.push(<option value={``}></option>)
+				data.forEach(element => {
+					options.push(<option value={`CasterImages/${element}`}>{element}</option>)
+				});
+				set_casterImageOptions(options)
+			})
+	}, [state_caster1Image, state_caster2Image, state_caster3Image, state_caster4Image,])
 
 	//Gets avaliable teams
 	useEffect(() => {
@@ -79,6 +135,22 @@ export default function Home() {
 					options.push(<option value={`${element}`}>{element}</option>)
 				});
 				set_teamOptions(options)
+			})
+	}, [])
+
+	//Gets avaliable casters
+	useEffect(() => {
+		let options = [];
+
+		fetch('http://localhost:30061/casters')
+			.then(response => response.json())
+			.then(data => {
+				//Add empty image if ya know, empty
+				options.push(<option value={``}></option>)
+				data.forEach(element => {
+					options.push(<option value={`${element}`}>{element}</option>)
+				});
+				set_casterOptions(options)
 			})
 	}, [])
 
@@ -119,7 +191,7 @@ export default function Home() {
 			<Header />
 			<Grid fluid className="content-center pb-16">
 				<Row center="xs" className="content-center">
-					<Col className=" w-4/6 m-8 border-gray-600 border-2 rounded-xl">
+					<Col className=" w-5/6 m-8 border-gray-600 border-2 rounded-xl">
 						<Form>
 							<Grid fluid className="pt-4">
 								<Row center="xs">
@@ -176,8 +248,39 @@ export default function Home() {
 
 									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
 										<Form.Label className="text-white">Casters</Form.Label>
-										<CasterManager/>
-										<CasterManager/>
+										<Row className="mx-2 my-2">
+											<Form.Label className="text-white">Amount of Casters</Form.Label>
+											<Form.Control
+												value={state_casterAmount}
+												className="col-xs-4 ml-4"
+												as="select"
+												onChange={e => dispatch(casterAmount(e.target.value))}>
+												<option value={1}>1 Caster :(</option>
+												<option value={2}>2 Casters</option>
+												<option value={3}>3 Casters</option>
+											</Form.Control>
+										</Row>
+										<CasterManager
+											casters={casterOptions}
+											images={casterImageOptions}
+											caster={state_caster1}
+											casterImage={state_caster1Image}
+											dispatch_caster={caster1}
+											dispatch_caster_image={caster1Image} />
+										<CasterManager
+											casters={casterOptions}
+											images={casterImageOptions}
+											caster={state_caster2}
+											casterImage={state_caster2Image}
+											dispatch_caster={caster2}
+											dispatch_caster_image={caster2Image} />
+										<CasterManager
+											casters={casterOptions}
+											images={casterImageOptions}
+											caster={state_caster3}
+											casterImage={state_caster3Image}
+											dispatch_caster={caster3}
+											dispatch_caster_image={caster3Image} />
 									</Col>
 								</Row>
 								<Row center="xs" className="my-4">

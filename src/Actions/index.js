@@ -120,3 +120,57 @@ export const casters = (data) => {
         payload: data
     }
 }
+export const caster1 = (data) => {
+    return {
+        type: 'SET_CASTER1',
+        payload: data
+    }
+}
+export const caster2 = (data) => {
+    return {
+        type: 'SET_CASTER2',
+        payload: data
+    }
+}
+export const caster3 = (data) => {
+    return {
+        type: 'SET_CASTER3',
+        payload: data
+    }
+}
+export const caster4 = (data) => {
+    return {
+        type: 'SET_CASTER4',
+        payload: data
+    }
+}
+export const caster1Image = (data) => {
+    return {
+        type: 'SET_CASTER1_IMAGE',
+        payload: data
+    }
+}
+export const caster2Image = (data) => {
+    return {
+        type: 'SET_CASTER2_IMAGE',
+        payload: data
+    }
+}
+export const caster3Image = (data) => {
+    return {
+        type: 'SET_CASTER3_IMAGE',
+        payload: data
+    }
+}
+export const caster4Image = (data) => {
+    return {
+        type: 'SET_CASTER4_IMAGE',
+        payload: data
+    }
+}
+export const casterAmount = (data) => {
+    return {
+        type: 'SET_CASTER_AMOUNT',
+        payload: data
+    }
+}
