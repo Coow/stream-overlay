@@ -48,11 +48,12 @@ body {
 
 .team1 {
   position: fixed;
-  top: 35%;
+  top: 50%;
   left: 22%;
   max-width: 20%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-text-stroke: 2px black;
 }
 
 .team1Score {
@@ -74,11 +75,12 @@ body {
 
 .team2 {
   position: fixed;
-  top: 35%;
+  top: 50%;
   left: 78%;
   max-width: 25%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-text-stroke: 2px black;
 }
 
 .team2Logo {

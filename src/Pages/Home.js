@@ -84,6 +84,8 @@ export default function Home() {
 	const [casterImageOptions, set_casterImageOptions] = useState([])
 	const [casterOptions, set_casterOptions] = useState([])
 
+	const [casterSelector, set_casterSelector] = useState([])
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
@@ -154,6 +156,42 @@ export default function Home() {
 			})
 	}, [])
 
+	//Rerenders the Caster Display
+	useEffect(() => {
+		console.log("Caster Amount Changed")
+		let array = [<CasterManager
+			casters={casterOptions}
+			images={casterImageOptions}
+			caster={state_caster1}
+			casterImage={state_caster1Image}
+			dispatch_caster={caster1}
+			dispatch_caster_image={caster1Image} />];
+
+		if (state_casterAmount >= 2) {
+			array.push(<CasterManager
+				casters={casterOptions}
+				images={casterImageOptions}
+				caster={state_caster2}
+				casterImage={state_caster2Image}
+				dispatch_caster={caster2}
+				dispatch_caster_image={caster2Image} />
+			)
+		}
+
+		if (state_casterAmount >= 3) {
+			array.push(<CasterManager
+				casters={casterOptions}
+				images={casterImageOptions}
+				caster={state_caster3}
+				casterImage={state_caster3Image}
+				dispatch_caster={caster3}
+				dispatch_caster_image={caster3Image} />)
+		}
+
+		set_casterSelector(array);
+
+	}, [state_casterAmount])
+
 	//Oh god this is jank but fine
 	const swapTeams = (event) => {
 		event.preventDefault();
@@ -223,27 +261,6 @@ export default function Home() {
 												<option value={"5"}>Best of 5</option>
 											</Form.Control>
 										</Row>
-										{/*
-										<Row center="xs" className="pt-3 m-auto items-center">
-											<Form.Label className="text-white">Game HUD Scale</Form.Label>
-											<RangeSlider
-												tooltip="off"
-												className="mx-4"
-												min="1"
-												max="100"
-												value={_hudScale}
-												onChange={changeEvent => set_hudScale(changeEvent.target.value)}
-												onAfterChange={changeEvent => dispatch(hudScale(changeEvent.target.value))}
-											/>
-											<Form.Control
-												className="col-xs-2"
-												value={_hudScale}
-												onChange={changeEvent => {
-													set_hudScale(changeEvent.target.value)
-													dispatch(hudScale(changeEvent.target.value))
-												}}>
-											</Form.Control>
-										</Row>*/}
 									</Col>
 
 									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">
@@ -260,27 +277,7 @@ export default function Home() {
 												<option value={3}>3 Casters</option>
 											</Form.Control>
 										</Row>
-										<CasterManager
-											casters={casterOptions}
-											images={casterImageOptions}
-											caster={state_caster1}
-											casterImage={state_caster1Image}
-											dispatch_caster={caster1}
-											dispatch_caster_image={caster1Image} />
-										<CasterManager
-											casters={casterOptions}
-											images={casterImageOptions}
-											caster={state_caster2}
-											casterImage={state_caster2Image}
-											dispatch_caster={caster2}
-											dispatch_caster_image={caster2Image} />
-										<CasterManager
-											casters={casterOptions}
-											images={casterImageOptions}
-											caster={state_caster3}
-											casterImage={state_caster3Image}
-											dispatch_caster={caster3}
-											dispatch_caster_image={caster3Image} />
+										{casterSelector}
 									</Col>
 								</Row>
 								<Row center="xs" className="my-4">
