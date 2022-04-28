@@ -23,10 +23,7 @@ export default function (props) {
 
                 <Form.Label className="text-white mt-2">Caster Picture</Form.Label>
                 <Form.Row inline className="mx-2 mb-2">
-                    <Form.File
-                        inline
-                        className="w-5/12"
-                        accept="image/*"
+                    <Form.File inline className="w-5/12" accept="image/*"
                         onChange={event => {
                             event.preventDefault();
 

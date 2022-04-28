@@ -115,6 +115,35 @@ app.get('/images/:folder', function (req, res) {
 	})
 });
 
+app.post('/css/:location', function (req, res) {
+
+	upload(req, res, function (err) {
+
+		if (err instanceof multer.MulterError) {
+			return res.status(500).json(err)
+			// A Multer error occurred when uploading.
+		} else if (err) {
+			return res.status(500).json(err)
+			// An unknown error occurred when uploading.
+		}
+
+		return res.status(200).send(req.file)
+		// Everything went fine.
+	})
+});
+
+app.get('/css/:location', function (req, res) {
+	let stylesheets = []
+
+	fs.readdir(`./public/CSS/${req.params.location}`, (err, files) => {
+		files.forEach(file => {
+			stylesheets.push(file);
+		})
+
+		return res.status(200).send(stylesheets)
+	})
+});
+
 app.listen(30061, function () {
 	console.log('App running on port 30061');
 });

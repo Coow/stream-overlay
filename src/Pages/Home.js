@@ -30,7 +30,9 @@ import {
 	caster3Image,
 	caster4,
 	caster4Image,
-	casterAmount
+	casterAmount,
+	casterCSS,
+	matchupCSS
 } from '../Actions'
 
 import { Form, Button } from 'react-bootstrap';
@@ -39,6 +41,7 @@ import { Col, Grid, Row } from 'react-flexbox-grid';
 
 import TeamInfoSetter from '../Components/TeamInfoSetter'
 import CasterManager from '../Components/CasterManager'
+import CSSManager from '../Components/CSSManager';
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -73,6 +76,9 @@ export default function Home() {
 	const state_caster3Image = useSelector(state => state.caster3Image)
 	const state_caster4Image = useSelector(state => state.caster4Image)
 	const state_casterAmount = useSelector(state => state.casterAmount)
+
+	const state_casterCSS = useSelector(state => state.casterCSS)
+	const state_matchupCSS = useSelector(state => state.matchupCSS)
 
 	const state = useSelector(state => state)
 
@@ -190,7 +196,7 @@ export default function Home() {
 
 		set_casterSelector(array);
 
-	}, [state_casterAmount])
+	}, [state_casterAmount, state_caster1Image, state_caster2Image, state_caster3Image])
 
 	//Oh god this is jank but fine
 	const swapTeams = (event) => {
@@ -261,6 +267,7 @@ export default function Home() {
 												<option value={"5"}>Best of 5</option>
 											</Form.Control>
 										</Row>
+										<CSSManager page="Casters" state={state_casterCSS} dispatch_state={casterCSS}/>
 									</Col>
 
 									<Col className="w-5/12 p-2 border border-gray-200 rounded-xl mx-2">

@@ -174,3 +174,17 @@ export const casterAmount = (data) => {
         payload: data
     }
 }
+
+export const casterCSS = (data) => {
+    return {
+        type: 'CASTER_CSS',
+        payload: data
+    }
+}
+
+export const matchupCSS = (data) => {
+    return {
+        type: 'MATCHUP_CSS',
+        payload: data
+    }
+}

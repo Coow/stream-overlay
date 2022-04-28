@@ -22,16 +22,13 @@ export default function Casters() {
     }]
 
     useEffect(() => {
-
         let array = []
 
-        
         for (let i = 0; i < GameState.casterAmount; i++) {
-            let imageLoc = 
 
             array.push(<Col xs className="text-white caster ">
-                <img src={`/${casterArray[i].image}`} className="mb-4 " />
-                <h3 className="text-5xl">{casterArray[i].name}</h3>
+                <img src={`/${casterArray[i].image}`} className={`mb-4 caster${i + 1}image`} />
+                <h3 className={`text-5xl caster${i + 1}`}>{casterArray[i].name}</h3>
             </Col>)
         }
 
@@ -39,8 +36,11 @@ export default function Casters() {
     }, [])
 
     return (
-        <Row center="xs" className="h-screen px-80 content-center flex justify-center ">
-            {casters}
-        </Row>
+        <>
+            <link rel="stylesheet" type="text/css" href={`../${GameState.casterCSS}`} />
+            <Row center="xs" className="h-screen px-80 content-center flex justify-center ">
+                {casters}
+            </Row>
+        </>
     )
 }

@@ -29,7 +29,9 @@ const allReducers = combineReducers({
     caster2Image,
     caster3Image,
     caster4Image,
-    casterAmount
+    casterAmount,
+    casterCSS,
+    matchupCSS
 })
 
 export default allReducers;
@@ -173,6 +175,24 @@ function caster4Image(state = [], action) {
 function casterAmount(state = [], action) {
     switch (action.type) {
         case 'SET_CASTER_AMOUNT':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function casterCSS(state = [], action) {
+    switch (action.type) {
+        case 'CASTER_CSS':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function matchupCSS(state = [], action) {
+    switch (action.type) {
+        case 'MATCHUP_CSS':
             return state = action.payload;
         default:
             return state;

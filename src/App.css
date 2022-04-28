@@ -115,22 +115,6 @@ body {
   border: 1px solid red;
 }
 
-.caster1 {
-  position: fixed;
-  top: 50%;
-  left: 33%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.caster2 {
-  position: fixed;
-  top: 50%;
-  left: 67%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 .caster {
   width: 300px;
   display: flex;
