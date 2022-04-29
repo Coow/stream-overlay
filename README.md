@@ -12,26 +12,28 @@ This tool/application is ment to help with Stream Production when **Spectating**
 - [Usage](#usage)
     + [OBS](#obs)
     + [League of Legends INGAME](#league-of-legends-ingame)
-- [App UI](#--app-ui--)
-  + [Pages](#--pages--)
-    - [League Overlay](#league-overlay)
-    - [Matchup](#matchup)
-    - [Casters](#casters)
-    - [End Of Stream](#end-of-stream)
-  + [Global Settings](#--global-settings--)
-    - [Show Score or Series](#show-score-or-series)
-    - [Series Settings](#series-settings)
-    - [Tournament Name](#tournament-name)
-    - [Overlay Settings](#overlay-settings)
-    - [Huge Save Button](#huge-save-button)
-    - [Swap Teams](#swap-teams)
-  + [Team Settings](#--team-settings--)
-    - [Team Name](#team-name)
-    - [Team Abbriviation](#team-abbriviation)
-    - [Team Icon](#team-icon)
-    - [Team Score](#team-score)
-    - [Series Wins](#series-wins)
-    - [Save or Load Team](#save-or-load-team)
+  * [**App UI**](#--app-ui--)
+    + [**Pages**](#--pages--)
+      - [League Overlay](#league-overlay)
+      - [Matchup](#matchup)
+      - [Casters](#casters)
+      - [End Of Stream](#end-of-stream)
+    + [**Global Settings**](#--global-settings--)
+      - [Show Score or Series](#show-score-or-series)
+      - [Series Settings](#series-settings)
+      - [Tournament Name](#tournament-name)
+      - [Overlay Settings](#overlay-settings)
+      - [Huge Save Button](#huge-save-button)
+      - [Swap Teams](#swap-teams)
+    + [**Team Settings**](#--team-settings--)
+      - [Team Name](#team-name)
+      - [Team Abbriviation](#team-abbriviation)
+      - [Team Icon](#team-icon)
+      - [Team Score](#team-score)
+      - [Series Wins](#series-wins)
+      - [Save or Load Team](#save-or-load-team)
+- [Custom CSS "API"](#custom-css--api-)
+    + [Caster Page](#caster-page)
 - [Technical Stuff](#technical-stuff)
     + [API](#api)
 
@@ -57,10 +59,12 @@ Lastly, if you need a Caster, feel free to contact me on [Twitter](https://twitt
 - ~~Save single team to load~~
 - Make scale feature, to fit other InGame Hud Sizes, and screen resoultions
 - ~~Swap Teams around~~
-- Save casters
+- ~~Save casters~~
 - Score in Mathup tab
 - Add sponsor for bottom left in LeagueOverlay
 - End of stream display
+- ~~CSS Importer~~
+- League Standings
 
 
 # Installation
@@ -113,7 +117,7 @@ If the overlay doesn't load, right click the Browser Source, click Properties an
 Also add an image underneath so it looks nice 😄
 
 ### League of Legends INGAME
-**TL:DR; Set the Ingame HUD Scale to 67%.**
+**TL:DR; Set the Ingame HUD Scale to 100%.**
 
 This only applies when using the `http://localhost:30060/LeagueOverlay`
 
@@ -121,7 +125,7 @@ This will hopefully soon be fixed, implemented, and be soon™ be obsolete!
 
 Currently the InGame overlay is static values, and isnt dynamic. Sadly meaning that YOU have to change to my settings.
 
-Set the Ingame HUD Scale to 67%. At the time of writing, I'm unsure if there is other things that needs to be changed. This als omeans the Game HUD Scale setting in the App is useless 😅
+Set the Ingame HUD Scale to 100%. At the time of writing, I'm unsure if there is other things that needs to be changed. This als omeans the Game HUD Scale setting in the App is useless 😅
 
 ---
 ## **App UI**
@@ -244,6 +248,20 @@ To load a team, select a team from the Dropdown. NO UNDO
 It's worth noting that the Image is not stored in the JSON file, and only stores a reference to the image.
 
 ---
+
+# Custom CSS "API"
+
+
+### Caster Page
+Target | Class Name
+--- | --- 
+Caster 1 Handle | `.caster1`
+Caster 1 Name | `.caster1Name`
+Caster 1 Image | `.caster1Image`
+(Repeat for 1-3)
+
+---
+
 # Technical Stuff
 
 `npm start` runs using [Concurrently](https://www.npmjs.com/package/concurrently). Which means the is 2 processes running at the same time. The React process, and the Express process used for the "Back End". I know this isn't optimal. But, there is always the Pull Request feature on GitHub 😉 
@@ -257,7 +275,12 @@ This also acts as a documentation for myself:
 URL | Function | Parameters
 --- | --- | ---
 POST `/uploadImage` | Uploads and saves an image for use in Team Icon | `body: image.png`
-POST `/saveConfig` | Saves the current settings to a `GameState.json` file | `body: Redux State`
-POST `/saveTeam` | Saves the team to a `Team Name.json` file | `body: Team State`
+POST `/saveConfig` | Saves the current settings to a `GameState.json` File | `body: Redux State`
+POST `/saveTeam` | Saves the team to a `Team Name.json` File | `body: Team State`
+POST `/saveCaster` | Saves the caster to a `Caster Handle` File | `body: Caster State`
+POST `/css/:location` | Saves the uploaded CSS to a `file_name.css` File in `public/CSS/:location` | `body: Folder Name`
 GET `/teams` | Gets all the teams in the `public/Teams` Folder | 
+GET `/casters` | Gets all the casters in the `public/Casters` Folder | 
+GET `/images/:folder` | Gets all the images in the `public/:folder` Folder | 
 GET `/images` | Gets all the images in the `public/TeamImages` Folder | 
+GET `/css/:location` | Gets all saved CSS files in `public/CSS/:location` | 

@@ -144,6 +144,31 @@ export const caster4 = (data) => {
         payload: data
     }
 }
+//Caster Names
+export const caster1Name = (data) => {
+    return {
+        type: 'SET_CASTER1_NAME',
+        payload: data
+    }
+}
+export const caster2Name = (data) => {
+    return {
+        type: 'SET_CASTER2_NAME',
+        payload: data
+    }
+}
+export const caster3Name = (data) => {
+    return {
+        type: 'SET_CASTER3_NAME',
+        payload: data
+    }
+}
+export const caster4Name = (data) => {
+    return {
+        type: 'SET_CASTER4_NAME',
+        payload: data
+    }
+}
 export const caster1Image = (data) => {
     return {
         type: 'SET_CASTER1_IMAGE',

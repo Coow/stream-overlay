@@ -1,3 +1,15 @@
 .caster1 {
-    color:blue;
+    color: blue;
+}
+
+.caster1Name {
+    display: none;
+}
+
+.caster2Name {
+    display: none;
+}
+
+.caster3Name {
+    display: none;
 }

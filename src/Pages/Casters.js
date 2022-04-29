@@ -8,16 +8,20 @@ export default function Casters() {
     const [casters, set_casters] = useState([])
 
     let casterArray = [{
-        name: GameState.caster1,
+        handle: GameState.caster1,
+        name: GameState.caster1Name,
         image: GameState.caster1Image,
     }, {
-        name: GameState.caster2,
+        handle: GameState.caster2,
+        name: GameState.caster2Name,
         image: GameState.caster2Image,
     }, {
-        name: GameState.caster3,
+        handle: GameState.caster3,
+        name: GameState.caster3Name,
         image: GameState.caster3Image,
     }, {
-        name: GameState.caster4,
+        handle: GameState.caster4,
+        name: GameState.caster4Name,
         image: GameState.caster4Image,
     }]
 
@@ -27,8 +31,9 @@ export default function Casters() {
         for (let i = 0; i < GameState.casterAmount; i++) {
 
             array.push(<Col xs className="text-white caster ">
-                <img src={`/${casterArray[i].image}`} className={`mb-4 caster${i + 1}image`} />
-                <h3 className={`text-5xl caster${i + 1}`}>{casterArray[i].name}</h3>
+                <img src={`/${casterArray[i].image}`} className={`caster${i + 1}image`} />
+                <h3 className={`text-5xl caster${i + 1}`}>{casterArray[i].handle}</h3>
+                <h3 className={`text-5xl caster${i + 1}Name`}>{casterArray[i].name}</h3>
             </Col>)
         }
 

@@ -12,13 +12,22 @@ export default function (props) {
     return (
         <Row center="xs" className="text-white m-auto items-center border border-gray-200 rounded-xl">
             <Form>
+                <Form.Label>Caster Handle</Form.Label>
+                <Form.Control
+                    inline
+                    className="mx-16 col-xs-8"
+                    defaultValue={props.caster}
+                    onChange={e => dispatch(props.dispatch_caster(e.target.value))}
+                ></Form.Control>
+
                 <Form.Label>Caster Name</Form.Label>
                 <Form.Control
                     inline
                     className="mx-16 col-xs-8"
-                    value={props.caster}
-                    onChange={e => dispatch(props.dispatch_caster(e.target.value))}
+                    defaultValue={props.casterName}
+                    onChange={e => dispatch(props.dispatch_caster_name(e.target.value))}
                 ></Form.Control>
+
 
 
                 <Form.Label className="text-white mt-2">Caster Picture</Form.Label>

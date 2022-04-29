@@ -23,12 +23,16 @@ import {
 	bestOf,
 	casters,
 	caster1,
-	caster1Image,
 	caster2,
-	caster2Image,
 	caster3,
-	caster3Image,
 	caster4,
+	caster1Name,
+	caster2Name,
+	caster3Name,
+	caster4Name,
+	caster1Image,
+	caster2Image,
+	caster3Image,
 	caster4Image,
 	casterAmount,
 	casterCSS,
@@ -71,6 +75,12 @@ export default function Home() {
 	const state_caster2 = useSelector(state => state.caster2)
 	const state_caster3 = useSelector(state => state.caster3)
 	const state_caster4 = useSelector(state => state.caster4)
+
+	const state_caster1Name = useSelector(state => state.caster1Name)
+	const state_caster2Name = useSelector(state => state.caster2Name)
+	const state_caster3Name = useSelector(state => state.caster3Name)
+	const state_caster4Name = useSelector(state => state.caster4Name)
+
 	const state_caster1Image = useSelector(state => state.caster1Image)
 	const state_caster2Image = useSelector(state => state.caster2Image)
 	const state_caster3Image = useSelector(state => state.caster3Image)
@@ -164,23 +174,28 @@ export default function Home() {
 
 	//Rerenders the Caster Display
 	useEffect(() => {
+		if(!casterImageOptions) {return}
 		console.log("Caster Amount Changed")
 		let array = [<CasterManager
 			casters={casterOptions}
 			images={casterImageOptions}
 			caster={state_caster1}
+			casterName={state_caster1Name}
 			casterImage={state_caster1Image}
 			dispatch_caster={caster1}
-			dispatch_caster_image={caster1Image} />];
+			dispatch_caster_image={caster1Image}
+			dispatch_caster_name={caster1Name} />];
 
 		if (state_casterAmount >= 2) {
 			array.push(<CasterManager
 				casters={casterOptions}
 				images={casterImageOptions}
 				caster={state_caster2}
+				casterName={state_caster2Name}
 				casterImage={state_caster2Image}
 				dispatch_caster={caster2}
-				dispatch_caster_image={caster2Image} />
+				dispatch_caster_image={caster2Image}
+				dispatch_caster_name={caster2Name} />
 			)
 		}
 
@@ -190,13 +205,15 @@ export default function Home() {
 				images={casterImageOptions}
 				caster={state_caster3}
 				casterImage={state_caster3Image}
+				casterName={state_caster3Name}
 				dispatch_caster={caster3}
-				dispatch_caster_image={caster3Image} />)
+				dispatch_caster_image={caster3Image}
+				dispatch_caster_name={caster3Name} />)
 		}
 
 		set_casterSelector(array);
 
-	}, [state_casterAmount, state_caster1Image, state_caster2Image, state_caster3Image])
+	}, [state_casterAmount, state_caster1Image, state_caster2Image, state_caster3Image, casterImageOptions])
 
 	//Oh god this is jank but fine
 	const swapTeams = (event) => {

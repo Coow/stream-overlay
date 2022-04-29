@@ -25,6 +25,10 @@ const allReducers = combineReducers({
     caster2,
     caster3,
     caster4,
+    caster1Name,
+    caster2Name,
+    caster3Name,
+    caster4Name,
     caster1Image,
     caster2Image,
     caster3Image,
@@ -130,6 +134,43 @@ function caster3(state = [], action) {
 function caster4(state = [], action) {
     switch (action.type) {
         case 'SET_CASTER4':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+//Caster Names
+function caster1Name(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER1_NAME':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster2Name(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER2_NAME':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster3Name(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER3_NAME':
+            return state = action.payload;
+        default:
+            return state;
+    }
+};
+
+function caster4Name(state = [], action) {
+    switch (action.type) {
+        case 'SET_CASTER4_NAME':
             return state = action.payload;
         default:
             return state;
