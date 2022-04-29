@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Col, Grid, Row } from 'react-flexbox-grid';
 import { Form, Button } from 'react-bootstrap';
+import { data } from 'jquery';
 
 export default function (props) {
 
@@ -79,7 +80,8 @@ export default function (props) {
                             axios.post('http://localhost:30061/saveCaster', {
                                 casterName: props.caster,
                                 info: {
-                                    name: props.caster,
+                                    handle: props.caster,
+                                    name: props.casterName,
                                     casterImage: props.casterImage
                                 }
                             })
@@ -101,8 +103,11 @@ export default function (props) {
                                     console.log(response)
                                     //If the input value was `` it will return an array instead, so check if the length is something and return
                                     if (response.data.length >= 0) return;
-                                    dispatch(props.dispatch_caster(response.data.name))
+                                    dispatch(props.dispatch_caster(response.data.handle))
                                     dispatch(props.dispatch_caster_image(response.data.casterImage))
+                                    if(response.data.name) {
+                                        dispatch(props.dispatch_caster_name(response.data.name))
+                                    }
                                 })
                         }}
                         className="col-xs-4 m-auto">

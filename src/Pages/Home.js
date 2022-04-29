@@ -169,6 +169,7 @@ export default function Home() {
 					options.push(<option value={`${element}`}>{element}</option>)
 				});
 				set_casterOptions(options)
+				
 			})
 	}, [])
 

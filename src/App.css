@@ -115,17 +115,3 @@ body {
   border: 1px solid red;
 }
 
-.caster {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.caster img {
-  object-fit: cover;
-  margin-bottom: 5px;
-  height: 300px;
-  max-width: 100%;
-}
