@@ -29,3 +29,11 @@
     height: 300px;
     max-width: 100%;
 }
+
+.casterDesk {
+
+    padding-left: 20rem;
+    /* 320px */
+    padding-right: 20rem;
+    /* 320px */
+}

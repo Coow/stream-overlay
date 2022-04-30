@@ -33,7 +33,7 @@ export default function Casters() {
             array.push(<Col xs className="text-white caster ">
                 <img src={`/${casterArray[i].image}`} className={`caster${i + 1}Image`} />
                 <div className="casterText">
-                    <h3 className={`text-5xl casterName ${i + 1}Name`}>{casterArray[i].name}</h3>
+                    <h3 className={`text-5xl casterName caster${i + 1}Name`}>{casterArray[i].name}</h3>
                     <h3 className={`text-5xl casterHandle caster${i + 1}`}>{casterArray[i].handle}</h3>
                 </div>
             </Col>)
